@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Webappsdemo.Models.Department>
+@{
+    ViewData["Title"] = "DepartmentList";
+}
+
+<h1>DepartmentList</h1>
+<table>
+    <Tr><td>Displaying the Deparment List</td></Tr>
+</table>
+@foreach (var department in Model)
+{
+    <div>DepartmentId : @department.DepartmentId</div>
+    <div>DepartmentName : @department.DepartmentName</div>
+    
+
+}
+

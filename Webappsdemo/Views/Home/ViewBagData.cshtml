@@ -1,0 +1,11 @@
+﻿
+
+
+    <h1> @ViewData["PageTitle"] </h1>
+    <body>
+        @{
+            var productdata = ViewData["Productdata"] as Webappsdemo.Models.Products;
+        }
+        <div>Id:@productdata.ProductId</div>
+        <div>Name:@productdata.ProductName</div>
+    </body>

@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Webappsdemo.Models.Department>
+@{
+
+    ViewBag.Title = " DepartmentList";
+}
+
+@{ 
+    Layout = "~/Views/shared/_layout.cshtml";
+}
+<h1>DepartmentList</h1>
+<table>
+    <Tr><td>Displaying the Deparment List</td></Tr>
+</table>
+@foreach (var department in Model)
+{
+    <div>DepartmentId : @department.DepartmentId</div>
+    <div>DepartmentName : @department.DepartmentName</div>
+
+
+}
+@section Scripts    {<script src="js/custom.js"></script> }
+
+
