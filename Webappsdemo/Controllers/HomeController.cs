@@ -77,5 +77,12 @@ namespace Webappsdemo.Controllers
             return View(departmentModel);
         }
 
+        //redirect the create page
+        public ViewResult Create()
+        {
+            var model = _prodData.GetProductInfodata(1);
+            return View(model);
+        }
+
     }
 }

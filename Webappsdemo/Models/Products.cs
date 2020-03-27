@@ -9,5 +9,9 @@ namespace Webappsdemo.Models
     {
        public int ProductId { get; set; }
        public string ProductName { get; set; }
+
+       public string CatelogType { get; set; }
+
+       public Dept Department { get; set; }
     }
 }
