@@ -25,6 +25,12 @@ namespace Webappsdemo.Models
            return (_productRepo.OrderBy(a=>a.ProductId).ToList());
         }
 
+        public  Products   AddProducts(Products data)
+        {
+          data.ProductId=  _productRepo.Max(id => id.ProductId) +1;
+             _productRepo.Add(data);
+          return  (data);
+        }
         public string GetProductInfo(int id)
         {
            return  _productRepo.FirstOrDefault(obj => obj.ProductId == id).ProductName;

@@ -16,19 +16,25 @@ namespace Webappsdemo.Controllers
             _prodData = ProductRepo;
             _departData = DepartmentRepo;
         }
-        public string Index()
-        {
-            // return View();
-           return ( _prodData.GetProductInfo(1).ToString());
-
-        }
-
-        public ViewResult Details()
+        public ViewResult Index()
         {
             List<Products> productModel = _prodData.FetchProductInfo();
-            return  View( productModel);
+            return View(productModel);
+
         }
 
+        //public ViewResult Details()
+        //{
+        //    List<Products> productModel = _prodData.FetchProductInfo();
+        //    return  View( productModel);
+        //}
+
+       [HttpGet]
+        public ViewResult Details(int id)
+        {
+            Products productModel = _prodData.GetProductInfodata(id);
+            return View(productModel);
+        }
         public ViewResult MyDataView()
         {
             return View("/Myviews/customview.cshtml");
@@ -77,11 +83,22 @@ namespace Webappsdemo.Controllers
             return View(departmentModel);
         }
 
-        //redirect the create page
-        public ViewResult Create()
+        public ViewResult create()
         {
-            var model = _prodData.GetProductInfodata(1);
-            return View(model);
+            return View();
+        }
+
+        //redirect the create page
+
+        [HttpPost]
+        public IActionResult Create(Products productdata)
+        {
+            if (ModelState.IsValid)
+            {
+                Products NewProducts = _prodData.AddProducts(productdata);
+                return RedirectToAction("details", new { id = NewProducts.ProductId });
+            }
+            return View();
         }
 
     }

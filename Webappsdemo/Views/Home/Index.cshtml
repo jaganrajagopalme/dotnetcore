@@ -1,8 +1,39 @@
-﻿
+﻿@model IEnumerable<Webappsdemo.Models.Products>;
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Details";
+    Products dataProduct = Model.ToList().FirstOrDefault();
 }
 
-<h1>Index</h1>
-<body> adflasdjf</body>
+<h1>Details</h1>
 
+<body>
+
+    <thead>
+        <tr>
+            <th><label asp-for="@dataProduct.ProductId"></label></th>
+        </tr>
+        <tr>
+            <th><label asp-for="@dataProduct.ProductName"></label></th>
+        </tr>
+    </thead>
+
+
+    @foreach (var items in Model)
+    {
+        <tr>
+            <td>
+                <label>@items.ProductId</label>
+            </td>
+            <td>
+                <label>@items.ProductName</label>
+            </td>
+            <td>
+                <a asp-action="edit" asp-route-id="@items.ProductId">Edit</a>
+                <a asp-action="create" asp-route-id="@items.ProductId">Create</a>
+                <a asp-action="Details" asp-route-id="@items.ProductId">Details</a>
+                <a asp-action="Delete" asp-route-id="@items.ProductId">Delete</a>
+            </td>
+        </tr>
+
+    }
+</body>

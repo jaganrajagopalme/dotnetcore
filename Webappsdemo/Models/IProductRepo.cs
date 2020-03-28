@@ -8,6 +8,7 @@ namespace Webappsdemo.Models
    public interface IProductRepo
     {
         string GetProductInfo(int id);
+        Products AddProducts(Products data);
         Products GetProductInfodata(int id);
         void UpdateProductInfo(int id);
         List<Products> FetchProductInfo();

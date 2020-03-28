@@ -5,16 +5,17 @@
 
 <h1>Create</h1>
 <form asp-controller="Home" asp-action="Create" asp-method="post">
-    <label asp-for="ProductId">        
+    <label asp-for="ProductId">
     </label>
     <input asp-for="ProductId" />
-   
+    <span asp-validation-for="ProductId" class="text-danger"></span>
     <label asp-for="ProductName">
     </label>
+    <span asp-validation-for="ProductName"></span>
     <input asp-for="ProductName" />
     <label asp-for="Department" />
-    <select asp-for="Department" asp-items="Html.GetEnumSelectList<Dept>()" />
 
-   
+    <button type="submit" class="btn btn-info pull-right">Create</button>
+
 </form>
 
