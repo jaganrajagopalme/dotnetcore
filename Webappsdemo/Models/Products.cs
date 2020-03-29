@@ -8,8 +8,10 @@ namespace Webappsdemo.Models
 {
     public class Products
     {
-       [Required]
-       public int ProductId { get; set; }
+        [Key]
+        [Required]
+        public int ProductId { get; set; }
+
        [Required]
        [MaxLength(length:30,ErrorMessage ="Max Length")]
        public string ProductName { get; set; }

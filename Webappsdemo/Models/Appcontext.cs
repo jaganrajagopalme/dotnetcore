@@ -16,5 +16,10 @@ namespace Webappsdemo.Models
 
         public DbSet<Products> Products { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Products>().HasData(new Products { ProductId = 34, ProductName = "TV", Department = Dept.HR, CatelogType = "Ele" });
+        }
+
     }
 }
