@@ -7,12 +7,14 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Webappsdemo.Models;
+using System.Configuration;
 
 namespace Webappsdemo
 {
@@ -28,6 +30,8 @@ namespace Webappsdemo
         }
         public void ConfigureServices(IServiceCollection services)
         {
+           // services.AddDbContext<Appcontext>(obj=>obj.Options.)
+            services.AddDbContext<Appcontext>(options =>options.UseSqlServer(_config.GetConnectionString("RazorPagesMovieContext")));
             services.AddControllersWithViews().AddXmlSerializerFormatters();
             services.AddSingleton<IProductRepo, ProductRepos>();
             services.AddSingleton<IDepartmentRepo, MockDepartmentRepo>();

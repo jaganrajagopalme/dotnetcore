@@ -45,5 +45,15 @@ namespace Webappsdemo.Models
         {
            // return _productRepo.Select();
         }
+
+        public Products UpdateProducts(Products data)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Products DeleteProducts(Products data)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

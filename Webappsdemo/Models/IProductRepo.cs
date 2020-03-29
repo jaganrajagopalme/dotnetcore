@@ -9,6 +9,9 @@ namespace Webappsdemo.Models
     {
         string GetProductInfo(int id);
         Products AddProducts(Products data);
+        Products UpdateProducts(Products data);
+
+        Products DeleteProducts(Products data);
         Products GetProductInfodata(int id);
         void UpdateProductInfo(int id);
         List<Products> FetchProductInfo();
