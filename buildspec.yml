@@ -1,0 +1,15 @@
+version: 0.2
+phases:
+  pre_build:
+    commands:
+      - echo prebuild dotnet project on `date`
+      - dotnet restore Webappsdemo/Webappsdemo.csproj
+  build:
+    commands:
+      - echo build dotnet project started on `date`
+      - dotnet publish -c release -o ./build_output Webappsdemo/Webappsdemo.csproj
+artifacts:
+  files:
+    - Webappsdemo/build_output/**/*
+    - scripts/**/*
+    - appspec.yml
